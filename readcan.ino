@@ -6,6 +6,7 @@
 
 void setup() {
   Serial.begin(9600);
+  Serial1.begin(9600);
   Serial.println("CAN Read - Testing receival of CAN Bus message");  
   delay(1000);
   
@@ -26,17 +27,18 @@ if (mcp2515_check_message())
 	{
         
                
-               Serial.print("ID: ");
-               Serial.print(message.id,HEX);
-               Serial.print(", ");
-               Serial.print("Data: ");
-               Serial.print(message.header.length,DEC);
+               Serial1.print("ID: ");
+               Serial1.print(message.id,HEX);
+               Serial1.print(", ");
+               Serial1.print("Data: ");
+               Serial1.print(message.header.length,DEC);
                for(int i=0;i<message.header.length;i++) 
                 {	
-                  Serial.print(message.data[i],HEX);
-                  Serial.print(" ");
+                  Serial1.print(message.data[i],HEX);
+                  Serial1.print(" ");
+                  
                 }
-               Serial.println("");
+               Serial1.println("");
             
            }}
 
